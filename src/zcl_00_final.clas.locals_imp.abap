@@ -473,6 +473,8 @@ CLASS lcl_carrier DEFINITION CREATE PRIVATE.
 
     DATA carrier_id TYPE /dmo/carrier_id READ-ONLY.
 
+    "!
+    "! @parameter i_carrier_id | faefasr
     METHODS constructor
       IMPORTING
                 i_carrier_id TYPE /dmo/carrier_id.
@@ -536,9 +538,8 @@ CLASS lcl_carrier IMPLEMENTATION.
       RAISE EXCEPTION TYPE /lrn/cx_s4d401_exs_failed
         EXPORTING
           textid     = /lrn/cx_s4d401_exs_failed=>carrier_not_exist
-*         previous   =
-          carrier_id = i_carrier_id.
 
+          carrier_id = i_carrier_id.
     ENDIF.
 
     AUTHORITY-CHECK
